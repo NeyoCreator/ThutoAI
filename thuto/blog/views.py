@@ -6,3 +6,9 @@ from django.http import HttpResponse
 def index(request):
     return HttpResponse('This is my first url')
 
+def specific(request):
+    number = 55
+    return HttpResponse(number)
+
+def article(request,article_id):
+    return render(request,'blog/index.html',{'article_id':article_id})
