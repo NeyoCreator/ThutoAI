@@ -6,25 +6,34 @@
     <title>Document</title>
     {% load static %}
     <link rel='stylesheet' type="text/css" href="{% static 'blog/style.css'%}"/>
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1> ThutoAi</h1>
+    <h1>ThutoAi</h1>
 
     <div>
         <div id='chatbot'>
             <p class='botText'><span>Hi there</span></p>
-      </div>
+        </div>
         
         <div id='userInput'>
             <input type="text" id='TextInput' name='userMessage' placeholder="Type your message..."/>
             <input type="submit" value='Send' id='buttonInput'>
         </div>
-
     </div>
 
     <script>
-        
-    </script>
+        function getUserResponse() {
+            console.log('we are printing');
+            var userText = $('#TextInput').val();
+            var userHTML = "<p class='userText'>User : <span>" + userText + "</span></p>";
+            $('#TextInput').val("");
+            $('#chatbot').append(userHTML);
+        }
 
+        $('#buttonInput').click(function() {
+            getUserResponse();
+        });
+    </script>
 </body>
 </html>
