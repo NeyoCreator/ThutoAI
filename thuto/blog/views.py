@@ -10,3 +10,6 @@ def specific(request):
     number = 55
     return HttpResponse(number)
 
+
+def getResponse(request):
+    return

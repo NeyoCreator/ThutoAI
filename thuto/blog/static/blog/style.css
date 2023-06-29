@@ -56,3 +56,11 @@ h1{
     color: white;
     border-radius: 10px;
 }
+
+.userText{
+    text-align: right;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 25px;
+    color: rgb(109, 111, 109);
+}
