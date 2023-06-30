@@ -12,4 +12,5 @@ def specific(request):
 
 
 def getResponse(request):
-    return
+    userMessage = request.GET.get('userMessage')
+    return HttpResponse(userMessage)
