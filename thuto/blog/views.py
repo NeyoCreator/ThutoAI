@@ -7,8 +7,8 @@ def index(request):
     return render(request, 'blog/index.html')
 
 def specific(request):
-    number = 55
-    return HttpResponse(number)
+    
+    return HttpResponse('list')
 
 
 def getResponse(request):
