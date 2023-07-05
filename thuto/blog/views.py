@@ -3,6 +3,9 @@ from django.http import HttpResponse
 
 # Create your views here.
 
+from chatterbot import Chatbot
+from ch
+
 def index(request):
     return render(request, 'blog/index.html')
 
