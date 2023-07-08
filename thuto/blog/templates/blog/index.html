@@ -1,43 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {% load static %}
-    <link rel='stylesheet' type="text/css" href="{% static 'blog/style.css'%}"/>
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
-</head>
-<body>
-    <h1>ThutoAi</h1>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        {% load static %}
+        <link rel='stylesheet' type="text/css" href="{% static 'blog/style.css'%}"/>
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1>ThutoAi</h1>
 
-    <div>
-        <div id='chatbot'>
-            <p class='botText'><span>Hi there</span></p>
+        <div>
+            <div id='chatbot'>
+                <p class='botText'><span>Hi there</span></p>
+            </div>
+            
+            <div id='userInput'>
+                <input type="text" id='TextInput' name='userMessage' placeholder="Type your message..."/>
+                <input type="submit" value='Send' id='buttonInput'>
+            </div>
         </div>
-        
-        <div id='userInput'>
-            <input type="text" id='TextInput' name='userMessage' placeholder="Type your message..."/>
-            <input type="submit" value='Send' id='buttonInput'>
-        </div>
-    </div>
 
-    <script>
-        function getUserResponse() {
-            var userText = $('#TextInput').val();
-            var userHTML = "<p class='userText'>User: <span>" + userText + "</span></p>";
-            $('#TextInput').val("");
-            $('#chatbot').append(userHTML);
+        <script>
+            function getUserResponse() {
+                var userText = $('#TextInput').val();
+                var userHTML = "<p class='userText'>User: <span>" + userText + "</span></p>";
+                $('#TextInput').val("");
+                $('#chatbot').append(userHTML);
 
-            $.get('/blog/getResponse', { userMessage: userText }).done(function(data) {
-                var returnedMessage = "<p class='botText'>Chatbot: <span>" + data + "</span></p>";
-                $('#chatbot').append(returnedMessage);
+                $.get('/blog/getResponse', { userMessage: userText }).done(function(data) {
+                    var returnedMessage = "<p class='botText'>Chatbot: <span>" + data + "</span></p>";
+                    $('#chatbot').append(returnedMessage);
+                });
+            }
+
+            $('#buttonInput').click(function() {
+                getUserResponse();
             });
-        }
-
-        $('#buttonInput').click(function() {
-            getUserResponse();
-        });
-    </script>
-</body>
-</html>
+        </script>
+    </body>
+    </html>
