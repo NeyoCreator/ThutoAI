@@ -6,5 +6,4 @@ urlpatterns = [
     path('specific',views.specific,name='specific'),
     path('getResponse',views.getResponse,name='getResponse'),
     path('submission', views.submission, name='submission'),
-
 ]
