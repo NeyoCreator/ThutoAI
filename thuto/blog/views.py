@@ -54,6 +54,7 @@ def index(request):
     # Get the file name from the parsed data
     file_name = user_data.get('file_name', 'No File')
 
+    print("printing Filename",file_name)
     # Pass the file name to the template context
     context = {
         'file_name': file_name
