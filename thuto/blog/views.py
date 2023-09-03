@@ -22,7 +22,9 @@ import ssl
 
 
 # Chatbot object
-bot = ChatBot('chat',read_only=False,logic_adapters=['chatterbot.logic.BestMatch'])
+bot = ChatBot('chat', read_only=False, logic_adapters=['chatterbot.logic.BestMatch'])
+
+
 
 # TRAINING DATA BASED ON Q/A FORMAT
 list_to_train=[
@@ -54,7 +56,6 @@ def index(request):
     # Get the file name from the parsed data
     file_name = user_data.get('file_name', 'No File')
 
-    print("printing Filename",file_name)
     # Pass the file name to the template context
     context = {
         'file_name': file_name
