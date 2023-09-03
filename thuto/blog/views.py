@@ -8,9 +8,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.core.files.storage import FileSystemStorage
 
-import nltk
 import ssl
+# import spacy
 
+# Load the small English model
+# nlp = spacy.load("en_core_web_sm")
 # try:
 #     _create_unverified_https_context = ssl._create_unverified_context
 # except AttributeError:
@@ -22,7 +24,7 @@ import ssl
 
 
 # Chatbot object
-bot = ChatBot('chat', read_only=False, logic_adapters=['chatterbot.logic.BestMatch'])
+# bot = ChatBot('chat', read_only=False, logic_adapters=['chatterbot.logic.BestMatch'])
 
 
 
@@ -42,8 +44,8 @@ list_to_train=[
 ]
 
 
-list_trainer = ListTrainer(bot)
-list_trainer.train(list_to_train)
+# list_trainer = ListTrainer(bot)
+# list_trainer.train(list_to_train)
 
 def index(request):
     # Read the JSON file
@@ -65,10 +67,10 @@ def index(request):
 def specific(request):
     return HttpResponse('list')
 
-def getResponse(request):
-    userMessage = request.GET.get('userMessage')
-    chatResponse = str(bot.get_response(userMessage))
-    return HttpResponse(chatResponse)
+# def getResponse(request):
+#     userMessage = request.GET.get('userMessage')
+#     chatResponse = str(bot.get_response(userMessage))
+#     return HttpResponse(chatResponse)
 
 def submission(request):
     if request.method == 'POST' and request.FILES['file']:
